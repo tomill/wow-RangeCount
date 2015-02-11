@@ -29,7 +29,7 @@ BattlegroundTargets は、すでに入れてると思う BattlegroundTargets を
 
 # つかいかた
 
-うまく RangeCount が有効になると、画面まんなかにこういうのがでてきますので、好きな位置に移動。
+うまく RangeCount が有効になると、画面まんなかにこういうのがでてきますので、好きな位置に移動。（Raidにいないと、デフォルト値で「- vs -」と出る）
 
 ![help2](https://cloud.githubusercontent.com/assets/5354/6150942/c36400d0-b255-11e4-923e-f161f4cc0524.png)
 
