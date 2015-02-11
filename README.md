@@ -17,6 +17,8 @@
 
 BGTargetを改造して使う関係で、Curseにはあげてませんので以下の方法で自分で入れてください。BGTargetが今後更新されたときはなんか考えます。
 
+もう少し検証して問題なければ、BGTarget改造ではなく単体のAddonにしようかな
+
 **Step 1**
 
 [このzipファイルをダウンロード](https://github.com/tomill/wow-RangeCount/blob/master/RangeCount-read-readme.zip?raw=true)して解凍
