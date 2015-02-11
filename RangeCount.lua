@@ -1,5 +1,5 @@
 local frame = CreateFrame("Button", "RangeCountFrame", UIParent)
-frame:SetFrameStrata("TOOLTIP")
+frame:SetFrameStrata("MEDIUM")
 frame:SetWidth(140)
 frame:SetHeight(30)
 frame:SetPoint("CENTER", 0, 0)
@@ -28,8 +28,8 @@ frame:RegisterEvent("UNIT_HEALTH_FREQUENT")
 frame:SetScript("OnEvent", function(self, event)
     local members = GetNumGroupMembers()
     
-    -- disable if death/ghost or not in group
-    if (UnitHealth("player") <= 0 or UnitIsGhost("player") or members <= 0) then
+    -- disable if death/ghost or not in group/bg
+    if (UnitHealth("player") <= 0 or UnitIsGhost("player") or not UnitInBattleground("player") or members <= 0) then
         textarea:SetTextColor(1, 1, 1)
         textarea:SetText("- vs -")
         return
@@ -39,7 +39,7 @@ frame:SetScript("OnEvent", function(self, event)
     local party_in_range = 0
     for i = 1, members do
         local unit = "raid" .. i
-        if (UnitHealth(unit) <= 0 and UnitIsGhost(unit) and UnitInRange(unit)) then
+        if (UnitHealth(unit) > 0 and not UnitIsGhost(unit) and UnitInRange(unit)) then
             party_in_range = party_in_range + 1
         end
     end
@@ -61,9 +61,9 @@ frame:SetScript("OnEvent", function(self, event)
     -- color
     if enemy_in_range ~= "?" then
         local diff = party_in_range - enemy_in_range
-        if diff <= 2 then
+        if diff <= -2 then
             textarea:SetTextColor(RED_FONT_COLOR.r, RED_FONT_COLOR.g, RED_FONT_COLOR.b)
-        elseif diff <= 1 then
+        elseif diff <= -1 then
             textarea:SetTextColor(YELLOW_FONT_COLOR.r, YELLOW_FONT_COLOR.g, YELLOW_FONT_COLOR.b)
         elseif diff >= 1 then
             textarea:SetTextColor(GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b)
