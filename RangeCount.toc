@@ -1,0 +1,6 @@
+## Interface: 60000
+## Version: 1.0.0
+## Title: Range Count
+## Author: Tomill
+
+RangeCount.lua
